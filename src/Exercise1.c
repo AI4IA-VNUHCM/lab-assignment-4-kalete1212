@@ -14,10 +14,25 @@ ______________________________________
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+int pascal(int k, int n)
+{
+	if(k == 0 || k == n)
+	return 1;
+	else
+	return pascal(k-1,n-1) + pascal(k, n-1);
+}
 
 void Ex1(int n){
 	//Your codes here
-    
+
+	for (int i=0; i <= n; i++)
+	{
+		for(int k=0; k <= i; k++)
+		{
+			printf("%d ", pascal(k,i));
+		}
+		printf("\n");
+	}
 }
 
 int main(int argc, char *argv[]) {
