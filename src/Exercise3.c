@@ -3,7 +3,7 @@
 increasing order and the second diagonal in decreasing order.
 First diagonal starts with element [0,0], second diagonal starts with elements [n-1,0]
 Ex:
-_________________________________________________________________
+_____________________________________________________________
 | Input: 4(edge) 10 21 12 53 64 53 86 72 68 99 10 11 12 13 14 15 |
 | The converted 2D array will be like this:                      |
 | 10 21 12 53                                                    |
@@ -50,7 +50,32 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 void Ex3(int in_arr[], int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(in_arr,a,n,n);
-	//Your codes here
+	//Your code here
+	for (int i = 0; i < n; i++)
+	{
+     for (int j= i+1 ; j<n ; j++)
+     {
+            if(a[i][i] > a[j][j])
+           {
+                in_arr = a[i][i];
+                a[i][i] = a[j][j];
+                a[j][j] = in_arr;
+           }
+     } 
+	}
+		for (int i = 0; i < n; i++)
+	{
+     for (int j= i + 1 ; j < n ; j++)
+     {
+            if(a[i][n - i - 1] > a[j][n - j - 1])
+           {
+                in_arr = a[i][n - i - 1];
+                a[i][n - i - 1] = a[j][n - j - 1];
+                a[j][n - j - 1] = in_arr;
+           }
+     } 
+	}
+    
 	
 	printArray(a,n,n);
 }
